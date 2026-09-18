@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 import os
 
@@ -7,20 +7,19 @@ import os
 # 1. Load environment variables
 # ---------------------------------------------------
 load_dotenv()
-
-api_key = os.getenv("GOOGLE_API_KEY")
-
-if not api_key:
-    raise ValueError(
-        "GOOGLE_API_KEY not found. "
-        "Please add GOOGLE_API_KEY=your_api_key to your .env file."
-    )
-
+#
+#api_key = os.getenv("GOOGLE_API_KEY")
+#
+#if not api_key:
+#    raise ValueError(
+#        "GOOGLE_API_KEY not found. "
+#        "Please add GOOGLE_API_KEY=your_api_key to your .env file."
+#    )
+#
 # ---------------------------------------------------
-# 2. Initialize Gemini
+# 2. Initialize Ollama
 # ---------------------------------------------------
-model = ChatGoogleGenerativeAI(
-    model="gemini-3.8-flash",
+model = ChatOllama(
     temperature=0.2,
 )
 
